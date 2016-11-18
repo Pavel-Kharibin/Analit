@@ -3,7 +3,7 @@ using Analit.Common.Models;
 
 namespace Analit.Data.Configuration
 {
-    internal class ProductConfiguration : EntityTypeConfiguration<Product>
+    internal sealed class ProductConfiguration : EntityTypeConfiguration<Product>
     {
         public ProductConfiguration()
         {

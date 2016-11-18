@@ -57,8 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\OrderStatus.cs" />
     <Compile Include="Interfaces\IModule.cs" />
     <Compile Include="Interfaces\IModuleRegistrar.cs" />
+    <Compile Include="Models\OrderProduct.cs" />
     <Compile Include="ModuleRegistrar.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />

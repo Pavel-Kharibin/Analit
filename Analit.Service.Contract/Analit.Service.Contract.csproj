@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAnalitService.Orders.cs" />
+    <Compile Include="IAnalitService.Products.cs" />
     <Compile Include="IAnalitService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

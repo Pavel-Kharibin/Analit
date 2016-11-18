@@ -44,7 +44,7 @@
     <Compile Include="AnalitService.cs" />
     <Compile Include="AnalitService.Orders.cs" />
     <Compile Include="AnalitService.Products.cs" />
-    <Compile Include="ModuleInit.cs" />
+    <Compile Include="Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

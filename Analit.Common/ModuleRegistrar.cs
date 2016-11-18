@@ -12,16 +12,9 @@ namespace Analit.Common
             _container = container;
         }
 
-        public void RegisterType<TFrom, TTo>(bool withInterception = false) where TTo : TFrom
+        public void RegisterType<TFrom, TTo>() where TTo : TFrom
         {
-            if (withInterception)
-            {
-                //register with interception 
-            }
-            else
-            {
-                _container.RegisterType<TFrom, TTo>();
-            }
+            _container.RegisterType<TFrom, TTo>();
         }
     }
 }

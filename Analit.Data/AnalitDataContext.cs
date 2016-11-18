@@ -14,6 +14,8 @@ namespace Analit.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ProductConfiguration());
+            modelBuilder.Configurations.Add(new OrderConfiguration());
+            modelBuilder.Configurations.Add(new OrderProductConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

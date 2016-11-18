@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
+using Analit.App.Models;
 using Analit.Service.Contract;
 
 namespace Analit.App
@@ -14,12 +16,21 @@ namespace Analit.App
         {
             InitializeComponent();
 
+            DataContext = new MainWindowViewModel();
+
             _service = service;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private MainWindowViewModel Model => (MainWindowViewModel) DataContext;
+
+        private async Task LoadProductsAsync()
         {
-            
+            var products = await _service.ProductsGetAllAsync();
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            await LoadProductsAsync();
         }
     }
 }

@@ -4,8 +4,94 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+        Title="Интерфейс кассира" Height="Auto" Width="650" MinWidth="650" MinHeight="500" Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <GroupBox Header="Выбранные позиции" Grid.Row="0" Margin="10,10,10,0">
+            <DataGrid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                      AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeRows="False"
+                      CanUserResizeColumns="False" Margin="5"
+                      ItemsSource="{Binding ProductPositions}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Path=Product.Name}"
+                                        CanUserReorder="False" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Кол-во" Binding="{Binding Count}" CanUserReorder="False"
+                                        IsReadOnly="True" />
+                    <DataGridTextColumn Header="Сумма"
+                                        Binding="{Binding Sum}"
+                                        CanUserReorder="False" IsReadOnly="True" Width="Auto" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <GroupBox Header="Текущая позиция" Grid.Row="1" Margin="10,0">
+            <Grid HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Text="{Binding Test, StringFormat='Код: {0}'}" />
+                <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Text="{Binding Test, StringFormat='Цена: {0}'}" />
+                <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Text="{Binding Test, StringFormat='Количество: {0}'}" />
+                <TextBlock Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Text="{Binding Test, StringFormat='Сумма: {0}'}" />
+                <TextBlock Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="0" Text="Мороженное детское"
+                           VerticalAlignment="Center" FontSize="25" FontWeight="Bold" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Добавить позицию" Grid.Row="2" Margin="10,0">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                        Orientation="Horizontal" FlowDirection="LeftToRight" Margin="5">
+                <ComboBox x:Name="ComboBox" HorizontalAlignment="Left" Margin="0,0,10,0" VerticalAlignment="Center"
+                          Width="250" />
+                <TextBox Width="30" VerticalAlignment="Center" Margin="0,0,10,0" />
+                <Button x:Name="BtnAddPosition" Content="Добавить" Width="100" Margin="0" VerticalAlignment="Center" />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Информация о документе" Grid.Row="3" Margin="10,0,10,10">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Вид документа:" VerticalAlignment="Center"
+                           HorizontalAlignment="Right" Margin="0,0,10,0" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Номер документа:" VerticalAlignment="Center"
+                           HorizontalAlignment="Right" Margin="0,0,10,0" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Позиций:" VerticalAlignment="Center"
+                           HorizontalAlignment="Right" Margin="0,0,10,0" />
+
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Продажа (Открыт)" VerticalAlignment="Center"
+                           HorizontalAlignment="Left" FontSize="15" FontWeight="Bold" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="000005" VerticalAlignment="Center"
+                           HorizontalAlignment="Left" FontSize="15" FontWeight="Bold" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="3" VerticalAlignment="Center"
+                           HorizontalAlignment="Left" FontSize="15" FontWeight="Bold" />
+
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Сумма документа:" VerticalAlignment="Center"
+                           HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" />
+                <TextBlock Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Text="190,00" VerticalAlignment="Center"
+                           HorizontalAlignment="Right" FontSize="60" FontWeight="Bold" />
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

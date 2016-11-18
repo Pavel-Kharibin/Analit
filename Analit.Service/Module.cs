@@ -5,7 +5,7 @@ using Analit.Service.Contract;
 namespace Analit.Service
 {
     [Export(typeof(IModule))]
-    public class ModuleInit : IModule
+    public class Module : IModule
     {
         public void Initialize(IModuleRegistrar registrar)
         {
