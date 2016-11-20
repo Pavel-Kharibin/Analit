@@ -11,7 +11,9 @@ namespace Analit.Data.Configuration
             HasKey(p => p.Id);
             Property(p => p.Id).HasColumnName("ID");
             Property(p => p.Created).HasColumnName("Created");
-            Property(p => p.Status).HasColumnName("Created");
+            Property(p => p.Status).HasColumnName("Status");
+
+            //HasRequired(p => p.OrderProducts);
         }
     }
 }
